@@ -1,8 +1,9 @@
 import { IIDRViewerData } from './../../models/IDRViewerData';
 import { IDRViewerService } from '../../services/idrviewerservice';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { Http } from '@angular/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { APP_BASE_HREF } from '@angular/common';
 import * as $ from 'jquery';
 
 declare const IDRViewer: any;
@@ -22,7 +23,7 @@ export class IDRViewerComponent implements OnInit, OnDestroy {
   zoomScale = 1.0;
   page = 1;
 
-  constructor(private http: Http, private route: ActivatedRoute, private router: Router, private idrViewerService: IDRViewerService) {
+  constructor(private http: Http, private route: ActivatedRoute, private router: Router, private idrViewerService: IDRViewerService, @Inject(APP_BASE_HREF) private baseHref: string) {
     this.route.params.subscribe(p => {
       this.id = p['id'];
     });
@@ -42,7 +43,7 @@ export class IDRViewerComponent implements OnInit, OnDestroy {
     // fetch base url and any existing annotations from a fake service
     this.idrViewerData = this.idrViewerService.getIDRViewerDataById(this.id);
 
-    this.http.get(this.idrViewerData.baseUrl + 'config.js').subscribe(res => {
+    this.http.get(this.baseHref + this.idrViewerData.baseUrl + 'config.js').subscribe(res => {
       // strip out json object from config.js file
       let configJson = res.text().slice(19, -1);
       let config = JSON.parse(configJson);
@@ -61,11 +62,11 @@ export class IDRViewerComponent implements OnInit, OnDestroy {
   }
 
   private initializeConfig(config) {
-    config.url = this.idrViewerData.baseUrl;
+    config.url = this.baseHref + this.idrViewerData.baseUrl;
     IDRViewerController.initialize_main();
     IDRViewerController.initialize_fullscreen();
     IDRViewerController.initialize_search();
-    IDRViewerController.initialize_toolbar(this.idrViewerData.baseUrl);
+    IDRViewerController.initialize_toolbar(this.baseHref + this.idrViewerData.baseUrl);
     IDRViewer.on('pageload', this.handleIDRViewerPageLoad.bind(this));
     IDRViewer.on('zoomchange', this.handleIDRViewerZoomChange.bind(this));
     IDRViewer.on('pagechange', this.handleIDRViewerPageChange.bind(this));
@@ -84,7 +85,7 @@ export class IDRViewerComponent implements OnInit, OnDestroy {
       let images = $("image", frame[0].contentDocument);
       images.each((idx, image) => {
         let overlayImg = new Image();
-        let imgSrc = this.idrViewerData.baseUrl + data.page + "/" + image.getAttribute("xlink:href");
+        let imgSrc = this.baseHref + this.idrViewerData.baseUrl + data.page + "/" + image.getAttribute("xlink:href");
         overlayImg.width = image.getAttribute("width");
         overlayImg.height = image.getAttribute("height");
         overlayImg.src = imgSrc;

@@ -7,14 +7,14 @@ export class IDRViewerService {
         if (id == 1) {
             let data: IIDRViewerData = {
                 id: 1,
-                baseUrl: '/assets/07_lowest_floor_guide_508_oct2017_2/',
+                baseUrl: 'assets/07_lowest_floor_guide_508_oct2017_2/',
                 annotations: []
             };
             return data;
         } else {
             let data: IIDRViewerData = {
                 id: 2,
-                baseUrl: '/assets/07_lowest_floor_guide_508_oct2017_2/',
+                baseUrl: 'assets/07_lowest_floor_guide_508_oct2017_2/',
                 annotations: [
                     {
                         id: "x314",
