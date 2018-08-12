@@ -19,9 +19,21 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "assets/idrviewer.css",
+        "assets/annotator.css",
+        "assets/imgareaselect-default.css",
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "assets/idrviewer.js",
+        "assets/idrviewer.fullscreen.js",
+        "assets/idrviewer.search.js",
+        "assets/idrviewer.toolbar.js",
+        "../node_modules/jquery/dist/jquery.min.js",
+        "assets/jquery.imgareaselect.js",
+        "assets/annotator.js",
+        "assets/annotator.imgselect.container.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

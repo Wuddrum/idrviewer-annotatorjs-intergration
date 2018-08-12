@@ -1,0 +1,59 @@
+<div id="left">
+    <div id="left-controls">
+        <button id="btnThumbnails" title="Thumbnails" class="btn"><i class="fa fa-picture-o fa-lg" aria-hidden="true"></i></button>
+        <button id="btnOutlines" title="Bookmarks" class="btn"><i class="fa fa-list-ul fa-lg" aria-hidden="true"></i></button>
+        <button id="btnSearch" title="Search" class="btn"><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+    </div>
+    <div id="leftContent">
+        <div id="thumbnailPanel"></div>
+        <div id="outlinePanel"></div>
+        <div id="searchPanel">
+            <input id="searchInput" title="Search" type="text">
+            <label class="searchOption"><input type="checkbox" id="cbMatchCase"> Match case</label>
+            <label class="searchOption"><input type="checkbox" id="cbLimitResults"> Limit results 1 per page</label>
+            <hr>
+            <span id="searchResultsCount"></span>
+            <div id="searchResults"></div>
+        </div>
+    </div>
+</div>
+
+<div id="main">
+    <div id="controls">
+        <div id="controls-left">
+            <button id="btnSideToggle" title="Sidebar" class="btn"><i class="fa fa-th fa-lg" aria-hidden="true"></i></button>
+            <button id="btnThemeToggle" title="Theme Toggle" class="btn"><i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i></button>
+        </div>
+
+        <div id="controls-center">
+            <button id="btnPrev" title="Previous Page" class="btn"><i class="fa fa-caret-left fa-2x" aria-hidden="true"></i></button>
+            <select id="goBtn">
+
+            </select>
+            <span id="pgCount"></span>
+            <button id="btnNext" title="Next Page" class="btn"><i class="fa fa-caret-right fa-2x" aria-hidden="true"></i></button>
+
+            <button id="btnSelect" title="Select" class="btn"><i class="fa fa-i-cursor fa-lg" aria-hidden="true"></i></button>
+            <button id="btnMove" title="Pan" class="btn"><i class="fa fa-arrows fa-lg" aria-hidden="true"></i></button>
+
+            <button id="btnZoomOut" title="Zoom Out" class="btn"><i class="fa fa-minus fa-lg" aria-hidden="true"></i></button>
+            <select id="zoomBtn">
+                <option value="specific">100%</option>
+                <option value="actualsize">Actual Size</option>
+                <option value="fitwidth">Fit Width</option>
+                <option value="fitheight">Fit Height</option>
+                <option value="fitpage">Fit Page</option>
+                <option value="auto">Automatic</option>
+
+            </select>
+            <button id="btnZoomIn" title="Zoom In" class="btn"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></button>
+        </div>
+        <div id="controls-right">
+            <button id="btnFullScreen" title="Fullscreen" class="btn"><i class="fa fa-arrows-alt fa-lg" aria-hidden="true"></i></button>
+        </div>
+    </div>
+
+    <div id="idrviewer">
+
+    </div>
+</div>
