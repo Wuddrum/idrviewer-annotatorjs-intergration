@@ -1,8 +1,11 @@
+import { APP_BASE_HREF } from '@angular/common';
+import { Inject } from '@angular/core';
 import { IIDRViewerData } from '../models/IDRViewerData';
-import { ElementFinder } from 'protractor';
 
 // dummy service
 export class IDRViewerService {
+    constructor(@Inject(APP_BASE_HREF) private baseHref: string) {}
+
     getIDRViewerDataById(id: number): IIDRViewerData {
         if (id == 1) {
             let data: IIDRViewerData = {
@@ -20,7 +23,7 @@ export class IDRViewerService {
                         id: "x314",
                         image_selection: {
                             h: "33.49%",
-                            src: "/assets/07_lowest_floor_guide_508_oct2017_2/30/img/1.png",
+                            src: this.baseHref + "assets/07_lowest_floor_guide_508_oct2017_2/30/img/1.png",
                             uri: "http://localhost:4200/assets/07_lowest_floor_guide_508_oct2017_2/30/img/1.png",
                             w: "24.48%",
                             x: "16.32%",
@@ -34,7 +37,7 @@ export class IDRViewerService {
                         id: "kjpl",
                         image_selection: {
                             h: "34.45%",
-                            src: "/assets/07_lowest_floor_guide_508_oct2017_2/30/img/1.png",
+                            src: this.baseHref + "assets/07_lowest_floor_guide_508_oct2017_2/30/img/1.png",
                             uri: "http://localhost:4200/assets/07_lowest_floor_guide_508_oct2017_2/30/img/1.png",
                             w: "11.89%",
                             x: "58.04%",
@@ -48,7 +51,7 @@ export class IDRViewerService {
                         id: "cmhk",
                         image_selection: {
                             h: "81.25%",
-                            src: "/assets/07_lowest_floor_guide_508_oct2017_2/31/img/1.png",
+                            src: this.baseHref + "assets/07_lowest_floor_guide_508_oct2017_2/31/img/1.png",
                             uri: "http://localhost:4200/assets/07_lowest_floor_guide_508_oct2017_2/31/img/1.png",
                             w: "62.30%",
                             x: "19.20%",
