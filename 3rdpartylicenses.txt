@@ -126,6 +126,10 @@ MIT
 MIT
 MIT
 
+@angular/common@4.4.7
+MIT
+MIT
+
 jquery@3.3.1
 MIT
 Copyright JS Foundation and other contributors, https://js.foundation/
@@ -166,10 +170,6 @@ own licenses; we recommend you read them, as their terms may differ from
 the terms above.
 
 @angular/platform-browser@4.4.7
-MIT
-MIT
-
-@angular/common@4.4.7
 MIT
 MIT
 
